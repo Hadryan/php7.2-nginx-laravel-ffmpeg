@@ -1,5 +1,5 @@
-# Docker build contains:
-* Php 7.2 with Laravel 5.6 dependencies 
+# Docker build containing:
+* Php 7.2 with Laravel 5.6 dependencies,
 * Nginx, 
 * php-fpm,
 * supervisord,
