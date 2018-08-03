@@ -19,8 +19,9 @@ RUN apt-get update && \
 	git \
 	node.js \
 	npm \
-	supervisor\
-	ffmpeg
+	supervisor \
+	ffmpeg \
+	libfdk-aac-dev
 
 #Install phalcon
 #RUN curl -s https://packagecloud.io/install/repositories/phalcon/nightly/script.deb.sh | bash
