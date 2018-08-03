@@ -20,8 +20,29 @@ RUN apt-get update && \
 	node.js \
 	npm \
 	supervisor \
-	ffmpeg \
-	libfdk-aac-dev
+	autoconf \
+    automake \
+    build-essential \
+    git-core \
+    libass-dev \
+    libgpac-dev \
+    libsdl1.2-dev \
+    libtheora-dev \
+    libtool \
+    libvdpau-dev \
+    libvorbis-dev \
+    libx11-dev \
+    libx264-dev \
+    libxext-dev \
+    libxfixes-dev \
+    pkg-config \
+    texi2html \
+    zlib1g-dev \
+    libmp3lame-dev \
+    nasm \
+    gcc \
+    yasm \
+    wget
 
 #Install phalcon
 #RUN curl -s https://packagecloud.io/install/repositories/phalcon/nightly/script.deb.sh | bash
@@ -40,11 +61,14 @@ RUN apt-get update && \
 #Create web folder
 RUN mkdir -p /var/www/html /run/php /var/log/supervisor
 
+
 #Add supervisord.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY www.conf /etc/php/7.2/fpm/pool.d/www.conf
 COPY php.ini /etc/php/7.2/fpm/php.ini
-
+COPY build.sh /usr/sbin/build.sh
+RUN chmod 755 /usr/sbin/build.sh
+RUN /usr/sbin/build.sh
 #Share web folder
 VOLUME ["/var/www/html"]
 
